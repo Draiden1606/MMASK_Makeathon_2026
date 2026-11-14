@@ -1,140 +1,143 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Roblox Discovery</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Madison Mentor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="../design/style.css">
+  <link rel="stylesheet" href="../design/style.css">
 </head>
-
 <body>
-    <nav class="navbar navbar-expand-md bg-primary" data-bs-theme="dark">
-        <div class="container">
+<nav class="navbar">
+  <div class="container-fluid px-3 px-md-4">
+    <a class="navbar-brand d-flex align-items-center" href="#"><span class="brand-mark">MM</span>madison mentor</a>
+    <div class="d-flex align-items-center gap-2">
+      <span id="role-badge" class="badge role-badge" hidden></span>
+      <span id="user-name" class="small d-none d-md-inline"></span>
+      <button type="button" id="switch-role" class="btn btn-soft btn-sm" hidden>Switch role</button>
+    </div>
+  </div>
+</nav>
 
-            <a href="#discover" class="navbar-brand">Roblox Discovery</a>
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav-links"
-                aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div id="nav-links" class="collapse navbar-collapse">
-                <div class="navbar-nav ms-auto" id="navbar" role="tablist">
-
-                    <button type="button" role="tab" id="tab-home" class="nav-link active"
-                        aria-controls="home" aria-selected="true">Home</button>
-
-
-                    <button type="button" role="tab" id="tab-discover" class="nav-link"
-                        aria-controls="discover" aria-selected="false">Discover</button>
-
-                    <button type="button" role="tab" id="tab-favorites" class="nav-link"
-                        aria-controls="favorites" aria-selected="false">Favorites</button>
-
-                    <button type="button" role="tab" id="tab-about" class="nav-link"
-                        aria-controls="about" aria-selected="false">About</button>
-                </div>
-
-                <button type="button" id="theme-toggle" aria-label="Toggle dark mode">
-                    <svg class="sun-icon" xmlns="http://w3.org" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12,18C11.11,18 10.26,17.8 9.5,17.45C11.56,16.5 13,14.42 13,12C13,9.58 11.56,7.5 9.5,6.55C10.26,6.2 11.11,6 12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18M20,8.69V4H15.31L12,0.69L8.69,4H4V8.69L0.69,12L4,15.31V20H8.69L12,23.31L15.31,20H20V15.31L23.31,12L20,8.69Z" />
-                    </svg>
-
-                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" />
-                    </svg>
-                </button>
-            </div>
+<main>
+  <!-- START PAGE -->
+  <section id="start" class="row g-0">
+    <div class="col-lg-5 intro">
+      <h1>A little guidance.<br>A bigger future.</h1>
+      <p class="lead mt-3 mb-4">Find your people. Share what you know. Make Madison feel a little more like home.</p>
+      <div class="panel">
+        <h2>Be a Big</h2><p>Turn your experience into someone else's head start.</p>
+        <h2>Find your Big</h2><p class="mb-0">Get help with a tough class, campus life, or what comes next.</p>
+      </div>
+    </div>
+    <div class="col-lg-7 d-flex justify-content-center">
+      <form id="profile-form" class="profile-form w-100" novalidate>
+        <h2 class="h3">Your next chapter starts here.</h2>
+        <p class="text-secondary">A few details help us connect you with the right people.</p>
+        <div class="mb-3">
+          <label for="name" class="form-label fw-semibold">Full name</label>
+          <input id="name" class="form-control" required autocomplete="name" placeholder="Alex Morgan">
+          <div class="invalid-feedback">Enter your name.</div>
         </div>
-    </nav>
-
-    <!-- Home tab -->
-    <section role="tabpanel" id="home" aria-labelledby="tab-home">
-        <header class="bg-body-tertiary py-5 text-center">
-            <div class="container">
-                <h3 class="display-4 fw-bold">Welcome to Roblox Discovery</h3>
-                <p class="lead my-4">
-                    Discover and save your favorite Roblox games.
-                </p>
-                <button type="button" class="btn btn-primary" id="start-btn">Lets go!</button>
-
-            </div>
-        </header>
-    </section>
-
-    <!-- Discover tab -->
-    <section role="tabpanel" id="discover" aria-labelledby="tab-discover" hidden>
-        <header class="bg-body-tertiary py-5 text-center">
-            <div class="container">
-                <h3 class="display-4 fw-bold">Discover Games</h3>
-                <p class="lead my-4">
-                    Find your next world. Search, compare, and save your favorites.
-                </p>
-            </div>
-        </header>
-        <div class="container">
-            <div class="row g-2 align-items-center mb-2">
-                <div class="col-sm-6 input-group">
-                    <label for="filter" class="form-label visually-hidden">Discover by name</label>
-                    <input type="search" id="filter" class="form-control" placeholder="Discover by name&hellip;" autocomplete="off">
-                    <button type="button" class="btn btn-primary" id="search-btn">Search Roblox</button>
-                </div>
-            </div>
+        <div class="row g-3 mb-3">
+          <div class="col-sm-6">
+            <label for="year" class="form-label fw-semibold">University year</label>
+            <select id="year" class="form-select"><option>Freshman</option><option>Sophomore</option><option selected>Junior</option><option>Senior</option><option>Graduate</option></select>
+          </div>
+          <div class="col-sm-6">
+            <label for="major" class="form-label fw-semibold">Major</label>
+            <select id="major" class="form-select"><option>Computer science</option><option>Biology</option><option>Mathematics</option><option>Business</option><option>Psychology</option><option>Other</option></select>
+          </div>
         </div>
-        <div id="games-list" class="row row-cols-2 row-cols-md-4 g-2 border rounded p-2">
-            <article class="game-card">
-                <img src="https://tr.rbxcdn.com/180DAY-e990f6606d7980b6d43d89c9d6eb9d21/256/256/Image/Webp/noFilter" alt="Game Image" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Placeholder Game Title</h5>
-                    <p class="card-text">Game description goes here.</p>
-                    <button type="button" class="btn btn-primary" id="add-favorites">Add to Favorites</button>
-                </div>
-            </article>
+        <fieldset class="mb-3">
+          <legend class="form-label fw-semibold fs-6">How would you like to join?</legend>
+          <div class="row g-2">
+            <div class="col-6"><input type="radio" class="btn-check" name="role" id="role-big" value="big" checked>
+              <label class="role-card" for="role-big"><strong>Be a Big</strong><br><small class="text-secondary">Mentor, tutor, and give back.</small></label></div>
+            <div class="col-6"><input type="radio" class="btn-check" name="role" id="role-little" value="little">
+              <label class="role-card" for="role-little"><strong>Be a Little</strong><br><small class="text-secondary">Learn, connect, and grow.</small></label></div>
+          </div>
+          <div class="form-text">Choose one role. Your workspace will be tailored to it.</div>
+        </fieldset>
+        <button type="submit" id="continue-btn" class="btn btn-primary w-100">Continue as a Big</button>
+        <p class="small text-secondary mt-3">By continuing, you agree to our Community Guidelines.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- BIG WORKSPACE -->
+  <section id="big" class="container-fluid px-3 px-md-4 py-4" hidden>
+    <h1 class="h2">Small moments. Big impact.</h1>
+    <p class="text-secondary">Welcome back, <span class="user-first"></span>. Here's where you can make a difference today.</p>
+    <div class="row g-3 mb-3">
+      <div class="col-4"><div class="mm-card"><div class="stat" id="stat-littles">3</div><small class="text-secondary">Littles</small></div></div>
+      <div class="col-4"><div class="mm-card"><div class="stat" id="stat-pending">0</div><small class="text-secondary">Pending</small></div></div>
+      <div class="col-4"><div class="mm-card"><div class="stat">8</div><small class="text-secondary">Hours this term</small></div></div>
+    </div>
+    <div class="row g-3">
+      <div class="col-lg-7">
+        <div class="mm-card">
+          <h2 class="h5">Little requests</h2>
+          <p class="small text-secondary">Accept a request to start connecting.</p>
+          <div id="requests" class="d-grid gap-3"></div>
         </div>
-    </section>
-
-    <!-- Favorites tab -->
-    <section role="tabpanel" id="favorites" aria-labelledby="tab-favorites" hidden>
-        <header class="bg-body-tertiary py-5 text-center">
-            <div class="container">
-                <h3 class="display-4 fw-bold">Favorites</h3>
-                <p class="lead my-4">
-                    Save those gems here!
-                </p>
-            </div>
-        </header>
-        <div id="favorites-list" class="row row-cols-2 row-cols-md-4 g-2 border rounded p-2">
-            <span id="shown-count" class="text-muted me-3"></span>
+      </div>
+      <div class="col-lg-5">
+        <div class="mm-card">
+          <h2 class="h5">Make time for a Little</h2>
+          <p class="small text-secondary">Pick days, set a time window, and Littles can request a session.</p>
+          <div id="days" class="days-grid mb-3"></div>
+          <div class="row g-2 mb-2">
+            <div class="col-6"><label for="start-time" class="form-label small">From</label><select id="start-time" class="form-select"></select></div>
+            <div class="col-6"><label for="end-time" class="form-label small">To</label><select id="end-time" class="form-select"></select></div>
+          </div>
+          <button type="button" id="add-slot" class="btn btn-primary w-100">Add availability</button>
+          <div id="add-error" class="text-danger small mt-2" role="alert"></div>
+          <ul id="slots" class="list-unstyled d-grid gap-2 mt-3 mb-0"></ul>
+          <p class="small text-secondary mt-3 mb-0">Times shown in Central Time. Repeats weekly.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- About tab -->
-    <section role="tabpanel" id="about" aria-labelledby="tab-about" hidden>
-        <header class="bg-body-tertiary py-5 text-center">
-            <div class="container">
-                <h3 class="display-4 fw-bold">About</h3>
-                <p class="lead my-4">
-                    Learn more about our game discovery platform.
-                </p>
-            </div>
-        </header>
-        <div class="container">
-            <p>
-                Welcome to Roblox Discovery! Our platform is made to make searching for Roblox games a better experience! The Roblox landing page for games can be very overwhelming, so we wanted to make it easier and more fun to find games that you like. We hope you enjoy our platform and find some new favorites!
-            </p>
-        </div>
-    </section>
+  <!-- LITTLE WORKSPACE -->
+  <section id="little" class="container-fluid px-3 px-md-4 py-4" hidden>
+    <h1 class="h2">You don't have to figure it out alone.</h1>
+    <p class="text-secondary">Hey <span class="user-first"></span>, find a Big for a tough class, good advice, or a fresh perspective.</p>
+    <div class="mm-banner mb-4 d-md-flex align-items-center justify-content-between gap-3">
+      <div><h2>A new perspective is one hello away.</h2><p class="mb-3 mb-md-0">Try a random campus connection. No subject needed, just a conversation.</p></div>
+      <button type="button" id="random-btn" class="btn btn-gold w-100 w-md-auto flex-shrink-0">Match me with a Big</button>
+    </div>
+    <div id="random-result" class="mm-card border-warning mb-4" hidden aria-live="polite"></div>
 
-    <footer>
-        <p>Authors: Aiden Cague, Sebastian Congdon, Kai Campbelly</p>
-    </footer>
+    <h2 class="h4">Find your kind of Big</h2>
+    <form id="search-form" class="row g-2 mb-2" role="search">
+      <div class="col-12 col-md-6"><label for="q" class="visually-hidden">Search</label>
+        <input id="q" type="search" class="form-control" placeholder="Name, major, or course (e.g. CS 149)" autocomplete="off"></div>
+      <div class="col-6 col-md-2"><label for="f-major" class="visually-hidden">Major</label>
+        <select id="f-major" class="form-select"><option value="">All majors</option></select></div>
+      <div class="col-6 col-md-2"><label for="f-day" class="visually-hidden">Day</label>
+        <select id="f-day" class="form-select"><option value="">Any day</option><option>Mon</option><option>Tue</option><option>Wed</option><option>Thu</option><option>Fri</option></select></div>
+      <div class="col-12 col-md-2"><button class="btn btn-primary w-100">Search Bigs</button></div>
+    </form>
+    <p id="result-count" class="small text-secondary" aria-live="polite"></p>
+    <div id="bigs" class="row g-3"></div>
+    <div class="mm-note mt-4"><strong>Find the right fit, at your pace.</strong><br><small>Send a tutoring request to choose a time together. Every connection starts with a conversation.</small></div>
+  </section>
+</main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+<footer class="text-center small text-secondary py-4 d-none d-md-block">Madison Mentor · Peer support. Real connection.</footer>
+
+<!-- Mobile bottom bar: shown only on phones, once a role is chosen -->
+<div id="mobile-bar" class="mobile-bar" hidden>
+  <button type="button" class="btn btn-primary" id="mobile-home">Home</button>
+  <button type="button" class="btn btn-soft" id="mobile-switch">Switch role</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-    <script src="app.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
